@@ -15,7 +15,7 @@ namespace sebts_web_tools.Controllers
     {
         // GET api/webscrape
         [CacheOutput(ClientTimeSpan = 3600, ServerTimeSpan = 3600)]
-        public string Get(string url)
+        public dynamic Get(string url)
         {
             Uri uri = new Uri(url);
             HtmlDocument doc = Scrape(uri);
@@ -23,7 +23,7 @@ namespace sebts_web_tools.Controllers
             string baseUrl = uri.AbsoluteUri.Remove(uri.AbsoluteUri.LastIndexOf(uri.AbsolutePath));
             FixRelativeUrls(doc, baseUrl);
 
-            return doc.DocumentNode.WriteTo();
+            return new { html = doc.DocumentNode.WriteTo() };
         }
 
         HtmlDocument Scrape(Uri uri)
