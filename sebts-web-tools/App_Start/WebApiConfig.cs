@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json.Serialization;
+using Newtonsoft.Json.Serialization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,7 +28,7 @@ namespace sebts_web_tools
             GlobalConfiguration.Configuration.Formatters.Insert(0, jsonpFormatter);
 
             jsonFormatter.AddQueryStringMapping("format", "json", "application/json");            
-            jsonpFormatter.AddQueryStringMapping("format", "jsonp", "application/jsonp");            
+            jsonpFormatter.AddQueryStringMapping("format", "jsonp", "application/javascript");            
         }
     }
 }
