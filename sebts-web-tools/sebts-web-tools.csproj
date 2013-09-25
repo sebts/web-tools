@@ -117,8 +117,9 @@
     <Reference Include="WebAPI.OutputCache">
       <HintPath>..\packages\Strathweb.CacheOutput.0.4.3\lib\net40\WebAPI.OutputCache.dll</HintPath>
     </Reference>
-    <Reference Include="WebApiContrib.Formatting.Jsonp">
-      <HintPath>..\packages\WebApiContrib.Formatting.Jsonp.0.9.7.0\lib\net40\WebApiContrib.Formatting.Jsonp.dll</HintPath>
+    <Reference Include="WebApiContrib.Formatting.Jsonp, Version=0.9.7.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\WebApiContrib.Formatting.Jsonp.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
