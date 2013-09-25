@@ -14,7 +14,7 @@ namespace sebts_web_tools.Controllers
     public class WebScrapeController : ApiController
     {
         // GET api/webscrape
-        [CacheOutput(ClientTimeSpan = 3600, ServerTimeSpan = 3600)]
+        //[CacheOutput(ClientTimeSpan = 3600, ServerTimeSpan = 3600)]
         public dynamic Get(string url)
         {
             Uri uri = new Uri(url);
