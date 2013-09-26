@@ -23,12 +23,12 @@ namespace sebts_web_tools
 
         static void RegisterFormatters()
         {
-            var jsonFormatter = GlobalConfiguration.Configuration.Formatters.JsonFormatter;
-            var jsonpFormatter = new JsonpMediaTypeFormatter(jsonFormatter);
+            var jsonpFormatter = new JsonpMediaTypeFormatter(GlobalConfiguration.Configuration.Formatters.JsonFormatter);
             GlobalConfiguration.Configuration.Formatters.Insert(0, jsonpFormatter);
-
-            jsonFormatter.AddQueryStringMapping("format", "json", "application/json");            
-            jsonpFormatter.AddQueryStringMapping("format", "jsonp", "application/javascript");            
+            jsonpFormatter.AddQueryStringMapping("media", "json", JsonMediaTypeFormatter.DefaultMediaType);
+            jsonpFormatter.AddQueryStringMapping("media", "javascript", "application/javascript");
+            GlobalConfiguration.Configuration.Formatters.XmlFormatter.AddQueryStringMapping(
+                "media", "xml", XmlMediaTypeFormatter.DefaultMediaType);
         }
     }
 }

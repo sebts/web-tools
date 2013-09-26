@@ -8,14 +8,13 @@ using System.Xml;
 using HtmlAgilityPack;
 using WebAPI.OutputCache;
 using System.Configuration;
+using sebts_web_tools.Models;
 
 namespace sebts_web_tools.Controllers
 {
     public class WebScrapeController : ApiController
     {
-        // GET api/webscrape
-        //[CacheOutput(ClientTimeSpan = 3600, ServerTimeSpan = 3600)]
-        public dynamic Get(string url)
+        public WebScrape Get(string url)
         {
             Uri uri = new Uri(url);
             HtmlDocument doc = Scrape(uri);
@@ -23,7 +22,7 @@ namespace sebts_web_tools.Controllers
             string baseUrl = uri.AbsoluteUri.Remove(uri.AbsoluteUri.LastIndexOf(uri.AbsolutePath));
             FixRelativeUrls(doc, baseUrl);
 
-            return new { html = doc.DocumentNode.WriteTo() };
+            return new WebScrape { Html = doc.DocumentNode.WriteTo() };
         }
 
         HtmlDocument Scrape(Uri uri)
